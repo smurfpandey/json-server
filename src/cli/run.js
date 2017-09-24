@@ -12,7 +12,7 @@ const jsonServer = require('../server')
 
 function prettyPrint(argv, object, rules) {
   const host = argv.host === '0.0.0.0' ? 'localhost' : argv.host
-  const port = argv.port
+  const port = process.env.PORT || argv.port
   const root = `http://${host}:${port}`
 
   console.log()
