@@ -40,11 +40,15 @@ function createApp(source, object, routes, middlewares, argv) {
 
   let router
 
-  const { foreignKeySuffix } = argv
+  const {
+    foreignKeySuffix
+  } = argv
   try {
     router = jsonServer.router(
       is.JSON(source) ? source : object,
-      foreignKeySuffix ? { foreignKeySuffix } : undefined
+      foreignKeySuffix ? {
+        foreignKeySuffix
+      } : undefined
     )
   } catch (e) {
     console.log()
@@ -87,7 +91,7 @@ function createApp(source, object, routes, middlewares, argv) {
   return app
 }
 
-module.exports = function(argv) {
+module.exports = function (argv) {
   const source = argv._[0]
   let app
   let server
@@ -132,7 +136,7 @@ module.exports = function(argv) {
       // Load middlewares
       let middlewares
       if (argv.middlewares) {
-        middlewares = argv.middlewares.map(function(m) {
+        middlewares = argv.middlewares.map(function (m) {
           console.log(chalk.gray('  Loading', m))
           return require(path.resolve(m))
         })
@@ -143,7 +147,8 @@ module.exports = function(argv) {
 
       // Create app and server
       app = createApp(source, data, routes, middlewares, argv)
-      server = app.listen(argv.port, argv.host)
+      var port = process.env.PORT || argv.port
+      server = app.listen(port, '0.0.0.0')
 
       // Enhance with a destroy function
       enableDestroy(server)
