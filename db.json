@@ -7,5 +7,46 @@
   ],
   "profile": { "name": "typicode" },
   "contacts": [],
-  "bookings": []
+  "bookings": [],
+  "countries": [{
+    "country": "Japan",
+    "countryCode": "JP",
+    "language": "Japanese",
+    "locale": "ja-JP",
+    "domainCode": "jp",
+    "timezone": "Asia/Tokyo",
+    "id": 1
+  },{
+    "country": "Norway",
+    "countryCode": "NO",
+    "language": "Norwegian",
+    "locale": "no-NO",
+    "domainCode": "no",
+    "timezone": "Europe/Oslo",
+    "id": 2
+  },{
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "language": "English",
+    "locale": "en-GB",
+    "domainCode": "uk",
+    "timezone": "Europe/London",
+    "id": 3
+  },{
+    "country": "Ireland",
+    "countryCode": "IE",
+    "language": "English",
+    "locale": "en-IE",
+    "domainCode": "ie",
+    "timezone": "Europe/Dublin",
+    "id": 4
+  },{
+    "country": "Portugal",
+    "countryCode": "PT",
+    "language": "Portuguese",
+    "locale": "pt-PT",
+    "domainCode": "pt",
+    "timezone": "Europe/Lisbon",
+    "id": 5
+  }]
 }
