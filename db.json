@@ -1,5 +1,8 @@
 {
-  "games":[{"id":"53d6de36-8328-42dc-bff2-c71bccb94bdd","name":"Horizon Zero Dawn Complete Edition","total_play_time":3764},{"id":"31fbbf23-2d5e-487d-be17-be3b4307d0d5","name":"Call of Duty: Modern Warfare","total_play_time":3155}],
+  "games":[
+    {"id":"53d6de36-8328-42dc-bff2-c71bccb94bdd","name":"Horizon Zero Dawn Complete Edition","total_play_time":3764},
+    {"id":"31fbbf23-2d5e-487d-be17-be3b4307d0d5","name":"Call of Duty: Modern Warfare","total_play_time":3155}
+  ],
   "posts": [
     { "id": 1, "title": "json-server", "author": "typicode" }
   ],
