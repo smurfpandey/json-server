@@ -8,7 +8,7 @@ module.exports = {
         singleQuote: true,
         semi: false,
       },
-    ]
+    ],
   },
-  env: { mocha: true }
+  env: { jest: true },
 }
