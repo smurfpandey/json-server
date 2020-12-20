@@ -127,7 +127,7 @@ module.exports = function (argv) {
 
       // Create app and server
       app = createApp(db, routes, middlewares, argv)
-      var port = process.env.PORT || argv.port
+      const port = process.env.PORT || argv.port
       server = app.listen(port, '0.0.0.0')
 
       // Enhance with a destroy function
