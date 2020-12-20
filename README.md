@@ -1,27 +1,48 @@
-# JSON Server [![](https://travis-ci.org/typicode/json-server.svg?branch=master)](https://travis-ci.org/typicode/json-server) [![](https://badge.fury.io/js/json-server.svg)](http://badge.fury.io/js/json-server) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/typicode/json-server?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# JSON Server [![](https://travis-ci.org/typicode/json-server.svg?branch=master)](https://travis-ci.org/typicode/json-server) [![](https://badge.fury.io/js/json-server.svg)](http://badge.fury.io/js/json-server)
 
 Get a full fake REST API with __zero coding__ in __less than 30 seconds__ (seriously)
 
 Created with <3 for front-end developers who need a quick back-end for prototyping and mocking.
 
 * [Egghead.io free video tutorial - Creating demo APIs with json-server](https://egghead.io/lessons/nodejs-creating-demo-apis-with-json-server)
-* [JSONPlaceholder - Live running version](http://jsonplaceholder.typicode.com)
+* [JSONPlaceholder - Live running version](https://jsonplaceholder.typicode.com)
+* [__My JSON Server__ - no installation required, use your own data](https://my-json-server.typicode.com)
 
 See also:
 * :dog: [husky - Git hooks made easy](https://github.com/typicode/husky)
-* :hotel: [hotel - developer tool with local .dev domain and https out of the box](https://github.com/typicode/hotel)
-* :atom_symbol: [react-fake-props - generate fake props for your React tests (Jest, Enzyme, ...)](https://github.com/typicode/react-fake-props)
-* :heart: [Patreon page - if you want to support JSON Server development](https://www.patreon.com/typicode)
+* :hotel: [hotel - developer tool with local .localhost domain and https out of the box](https://github.com/typicode/hotel)
+
+<p>&nbsp;</p>
+
+<h2 align="center">Gold sponsors 🥇</h2>
+
+<p>&nbsp;</p>
+
+<p align="center">
+  <a href="https://tryretool.com/?utm_source=sponsor&utm_campaign=typicode" target="_blank">
+    <img src="https://i.imgur.com/IBItATn.png" height="70px">
+  </a>
+</p>
+
+<p>&nbsp;</p>
+
+<p align="center">
+  <a href="https://mockend.com/" target="_blank">
+    <img src="https://mockend.com/banner.svg" height="70px">
+  </a>
+</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+[Become a sponsor and have your company logo here](https://github.com/users/typicode/sponsorship)
 
 ## Table of contents
 
-<details>
-
 <!-- toc -->
 
-- [Sponsorship](#sponsorship)
-- [Example](#example)
-- [Install](#install)
+- [Getting started](#getting-started)
 - [Routes](#routes)
   * [Plural routes](#plural-routes)
   * [Singular routes](#singular-routes)
@@ -61,17 +82,15 @@ See also:
 
 <!-- tocstop -->
 
-</details>
+## Getting started
 
-## Sponsorship
+Install JSON Server 
 
-Development of JSON Server and my other projects is generously supported by contributions from people. If you are benefiting from my projects and would like to help keep them financially sustainable, please visit [Patreon](https://patreon.com/typicode).
+```
+npm install -g json-server
+```
 
-If you're a company, you can have your logo here.
-
-## Example
-
-Create a `db.json` file
+Create a `db.json` file with some data
 
 ```json
 {
@@ -88,10 +107,10 @@ Create a `db.json` file
 Start JSON Server
 
 ```bash
-$ json-server --watch db.json
+json-server --watch db.json
 ```
 
-Now if you go to [http://localhost:3000/posts/1](), you'll get
+Now if you go to [http://localhost:3000/posts/1](http://localhost:3000/posts/1), you'll get
 
 ```json
 { "id": 1, "title": "json-server", "author": "typicode" }
@@ -101,14 +120,8 @@ Also when doing requests, it's good to know that:
 
 - If you make POST, PUT, PATCH or DELETE requests, changes will be automatically and safely saved to `db.json` using [lowdb](https://github.com/typicode/lowdb).
 - Your request body JSON should be object enclosed, just like the GET output. (for example `{"name": "Foobar"}`)
-- Id values are not mutable. Any `id` value in the body of your PUT or PATCH request wil be ignored. Only a value set in a POST request wil be respected, but only if not already taken.
-- A POST, PUT or PATCH request should include a `Content-Type: application/json` header to use the JSON in the request body. Otherwise it will result in a 200 OK but without changes being made to the data.
-
-## Install
-
-```bash
-$ npm install -g json-server
-```
+- Id values are not mutable. Any `id` value in the body of your PUT or PATCH request will be ignored. Only a value set in a POST request will be respected, but only if not already taken.
+- A POST, PUT or PATCH request should include a `Content-Type: application/json` header to use the JSON in the request body. Otherwise it will return a 2XX status code, but without changes being made to the data. 
 
 ## Routes
 
@@ -312,7 +325,7 @@ __Tip__ use modules like [Faker](https://github.com/Marak/faker.js), [Casual](ht
 
 ### HTTPS
 
-There's many way to set up SSL in development. One simple way though is to use [hotel](https://github.com/typicode/hotel).
+There are many ways to set up SSL in development. One simple way is to use [hotel](https://github.com/typicode/hotel).
 
 ### Add custom routes
 
@@ -368,7 +381,7 @@ json-server [options] <source>
 Options:
   --config, -c       Path to config file           [default: "json-server.json"]
   --port, -p         Set port                                    [default: 3000]
-  --host, -H         Set host                               [default: "0.0.0.0"]
+  --host, -H         Set host                             [default: "localhost"]
   --watch, -w        Watch file(s)                                     [boolean]
   --routes, -r       Path to routes file
   --middlewares, -m  Paths to middleware files                           [array]
@@ -558,10 +571,10 @@ Returns middlewares used by JSON Server.
   * `bodyParser` enable body-parser middleware (default: true)
   * `noCors` disable CORS (default: false)
   * `readOnly` accept only GET requests (default: false)
-  
+
 __`jsonServer.router([path|object])`__
 
-Returns JSON Server router. 
+Returns JSON Server router.
 
 ### Deployment
 
@@ -576,11 +589,11 @@ You can deploy JSON Server. For example, [JSONPlaceholder](http://jsonplaceholde
 ### Articles
 
 * [Node Module Of The Week - json-server](http://nmotw.in/json-server/)
-* [Mock up your REST API with JSON Server](http://www.betterpixels.co.uk/projects/2015/05/09/mock-up-your-rest-api-with-json-server/)
 * [ng-admin: Add an AngularJS admin GUI to any RESTful API](http://marmelab.com/blog/2014/09/15/easy-backend-for-your-restful-api.html)
-* [Fast prototyping using Restangular and Json-server](http://glebbahmutov.com/blog/fast-prototyping-using-restangular-and-json-server/)
+* [Fast prototyping using Restangular and Json-server](https://glebbahmutov.com/blog/fast-prototyping-restangular-and-json-server/)
 * [Create a Mock REST API in Seconds for Prototyping your Frontend](https://coligo.io/create-mock-rest-api-with-json-server/)
 * [No API? No Problem! Rapid Development via Mock APIs](https://medium.com/@housecor/rapid-development-via-mock-apis-e559087be066#.93d7w8oro)
+* [Zero Code REST With json-server](https://dzone.com/articles/zero-code-rest-with-json-server)
 
 ### Third-party tools
 
@@ -592,4 +605,6 @@ You can deploy JSON Server. For example, [JSONPlaceholder](http://jsonplaceholde
 
 ## License
 
-MIT - [Typicode](https://github.com/typicode) - [Patreon](https://www.patreon.com/typicode)
+MIT
+
+[Supporters](https://thanks.typicode.com) ✨
